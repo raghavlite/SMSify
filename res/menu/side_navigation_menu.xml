@@ -3,23 +3,47 @@
 
     <item
         android:id="@+id/side_navigation_menu_item1"
-        android:icon="@drawable/ic_android1"
+        android:icon="@drawable/home"
         android:title="Home"/>
+    
+        <item
+        android:id="@+id/side_navigation_menu_item4"
+        android:icon="@drawable/foursquare"
+        android:title="Settings"/>
+    
+    
+            <item
+        android:id="@+id/side_static_item4"
+        android:icon="@drawable/ic_android4"
+        android:title="SERVICES"/>
+        
+    
     <item
         android:id="@+id/side_navigation_menu_item2"
-        android:icon="@drawable/ic_android2"
-        android:title="Services"/>
+        android:icon="@drawable/list"
+        android:title="Existing Services"/>
     <item
         android:id="@+id/side_navigation_menu_item3"
-        android:icon="@drawable/ic_android3"
+        android:icon="@drawable/pencil"
         android:title="Create Service"/>
+
     <item
-        android:id="@+id/side_navigation_menu_item4"
-        android:icon="@drawable/ic_android4"
-        android:title="Settings"/>
+        android:id="@+id/side_navigation_menu_item6"
+        android:icon="@drawable/loop"
+        android:title="Update Service"/>
+    
+    
+        <item
+        android:id="@+id/side_static_item5"
+        android:icon="@drawable/ic_android5"
+        android:title="ABOUT"/>
+    
+    
+    
+    
     <item
         android:id="@+id/side_navigation_menu_item5"
-        android:icon="@drawable/ic_android5"
-        android:title="Extra"/>
+        android:icon="@drawable/info"
+        android:title="About SMSify"/>
 
 </menu>

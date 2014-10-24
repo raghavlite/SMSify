@@ -18,6 +18,7 @@ import com.devspark.sidenavigation.SideNavigationView.Mode;
 import com.example.hacku21.BaseInflaterAdapter;
 import com.example.hacku21.CardInflater;
 import com.example.hacku21.CardItemData;
+import com.example.hacku4.R.integer;
 
 
 
@@ -68,7 +69,7 @@ public class MainActivity extends SherlockActivity implements ISideNavigationCal
 
     private ImageView icon;
     private SideNavigationView sideNavigationView;
-    
+    private ArrayList<Integer> ad;
     
     public static BaseInflaterAdapter<CardItemData> adapter;
 
@@ -105,16 +106,19 @@ public class MainActivity extends SherlockActivity implements ISideNavigationCal
 		
 		
 		
+		ad=new ArrayList<Integer>();
 		
 		
-		
+		//ad.add(0);
+		ad.add(2);
+		ad.add(6);
         
         icon = (ImageView) findViewById(android.R.id.icon);
         sideNavigationView = (SideNavigationView) findViewById(R.id.side_navigation_view);
         sideNavigationView.setMenuItems(R.menu.side_navigation_menu);
         sideNavigationView.setMenuClickCallback(this);
         sideNavigationView.setMode(Mode.LEFT);
-        sideNavigationView.setHeads(new ArrayList<Integer>());
+        sideNavigationView.setHeads(ad);
 
 //        if (getIntent().hasExtra(EXTRA_TITLE)) {
 //            String title = getIntent().getStringExtra(EXTRA_TITLE);

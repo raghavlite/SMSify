@@ -34,7 +34,7 @@ public final class R {
 		public static final int chevron_default_down = 0x7f020085;
 		public static final int chevron_white = 0x7f020086;
 		public static final int chevron_white_down = 0x7f020087;
-		public static final int icon = 0x7f020090;
+		public static final int icon = 0x7f020093;
 	}
 	public static final class id {
 		public static final int buttonsContainer = 0x7f050039;

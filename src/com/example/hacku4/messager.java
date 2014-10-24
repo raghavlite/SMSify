@@ -80,7 +80,7 @@ public class messager extends BroadcastReceiver{
 						
 						
 						
-						if(str.contains((ae.get(j).getCode())))
+						if(str.startsWith((ae.get(j).getCode())))
 						{
 							Log.d("RECEIVER", str+"    "+ae.get(j).getCode()+ "  "+j);
 							
