@@ -150,7 +150,7 @@ protected void onCreate(Bundle savedInstanceState) {
 			// TODO Auto-generated method stub
 			
 			
-			
+			/////check for intternet connection and intimate
 			
 			new localtaske().execute(ser_exurl.getText().toString());
 			
