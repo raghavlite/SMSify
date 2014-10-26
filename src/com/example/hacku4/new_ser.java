@@ -11,6 +11,7 @@ import org.apache.http.ParseException;
 import com.actionbarsherlock.app.SherlockActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
+import com.example.hacku21.ConnectionDetector;
 import com.example.hacku21.JSONParser;
 import com.example.hacku4.jsontree.FirstReceiver;
 
@@ -60,7 +61,7 @@ public class new_ser extends SherlockActivity {
 	databasehandler dbh;
 	ArrayList<String> keys;
 	public static final String ACTION_CLOSE = "com.example.hacku4.ACTION_MSG";
-	
+	ConnectionDetector cd;
 @Override
 protected void onCreate(Bundle savedInstanceState) {
 	// TODO Auto-generated method stub
@@ -78,7 +79,7 @@ protected void onCreate(Bundle savedInstanceState) {
     dbh=new databasehandler(cntxt);
     keys=dbh.getall_keys();
 
-
+    cd=new ConnectionDetector(getApplicationContext());
 
     
  type_view=(TextView)findViewById(R.id.Type1);
@@ -152,7 +153,24 @@ protected void onCreate(Bundle savedInstanceState) {
 			
 			/////check for intternet connection and intimate
 			
-			new localtaske().execute(ser_exurl.getText().toString());
+			
+			
+			if (!cd.isConnectingToInternet()) {
+				// Internet Connection is not present
+				Toast.makeText(getApplicationContext(), "Not connected to internet", Toast.LENGTH_SHORT).show();
+				// stop executing code by return
+				
+			}
+			
+			else
+			{
+				new localtaske().execute(ser_exurl.getText().toString());
+				
+				
+			}
+			
+			
+			
 			
 			
 		}
