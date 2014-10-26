@@ -7,6 +7,8 @@ import java.util.ArrayList;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.http.ParseException;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import com.actionbarsherlock.app.SherlockActivity;
 import com.actionbarsherlock.view.Menu;
@@ -241,8 +243,7 @@ protected void onPreExecute() {
 	// TODO Auto-generated method stub
 	super.onPreExecute();
 	
-	
-	
+
 	pDialog = new ProgressDialog(new_ser.this);
 	pDialog.setMessage("Please wait...");
 	pDialog.setCancelable(false);
@@ -257,7 +258,7 @@ protected void onPreExecute() {
 	protected Intent doInBackground(String... params) {
 		// TODO Auto-generated method stub
 		JSONParser jParser = new JSONParser();
-//		//
+		JSONObject json1 = null;
 		String json = null;
 		
 		Intent in=new Intent(getApplicationContext(), jsontree.class);
@@ -306,7 +307,30 @@ protected void onPreExecute() {
 		
 		
 		
-		in.putExtra("jsonPath", ".");
+		try {
+			 json1 = new JSONObject(json);
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			in.putExtra("parse", false);
+		}
+		
+		
+		
+		try {
+			json1=json1.getJSONObject("query");
+			json1=json1.getJSONObject("results");
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			in.putExtra("parse", false);
+		}
+		
+		json=json1.toString();
+		
+		in.putExtra("jsonPath", "$.");
+		
+		
 		in.putExtra("json", json);
 		
 		
@@ -322,18 +346,22 @@ protected void onPreExecute() {
 			if (pDialog.isShowing())
 				pDialog.dismiss();
 			
-			if(in.getBooleanExtra("parse", true))
+			if(!in.getBooleanExtra("parse", true))
 			{
-				Toast.makeText(getApplicationContext(), "Select correct Type", Toast.LENGTH_SHORT).show();
+				Toast.makeText(getApplicationContext(), "Check Url/Service type", Toast.LENGTH_SHORT).show();
 			}
-			if(in.getBooleanExtra("ex_url", true))
+			else if(!in.getBooleanExtra("ex_url", true))
 			{
 				Toast.makeText(getApplicationContext(), "Enter proper Url", Toast.LENGTH_SHORT).show();
 			}
 			
 			
-			startActivity(in);
 			
+			//in.putExtra("json",""+json.getJSONObject("query"));
+			else 
+			{
+			 startActivity(in);
+			}
 		}
 
 	

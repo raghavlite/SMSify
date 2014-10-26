@@ -187,7 +187,7 @@ public class jsontree extends SherlockActivity{
     		try {
 				//myIntent.putExtra("path", "<$"+path+arr.getString(index)+">");
 				
-				bufferer.className="<$"+path+arr.getString(index)+">";
+				bufferer.className="<"+path+arr.getString(index)+">";
 			} catch (JSONException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
