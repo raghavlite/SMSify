@@ -164,6 +164,8 @@ protected void onCreate(Bundle savedInstanceState) {
 			
 			else
 			{
+				
+				Toast.makeText(getApplicationContext(), "is connected  internet", Toast.LENGTH_SHORT).show();
 				new localtaske().execute(ser_exurl.getText().toString());
 				
 				
